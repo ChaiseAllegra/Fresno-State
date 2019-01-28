@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1526506961 source:c:\users\chaise\dropbox\173\assign 2\assign2\main.cpp
+	<string.h>
+	<GL/gl.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<math.h>
+	<SOIL.h>
+	<time.h>
+
+1523842007 c:\users\chaise\dropbox\173\assign 2\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1523842007 c:\users\chaise\dropbox\173\assign 2\common\include\soil.h
+
+1526506961 source:c:\users\chaise\dropbox\173\assignment 2\assign2\main.cpp
+	<string.h>
+	<GL/gl.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<math.h>
+	<SOIL.h>
+	<time.h>
+
+1525734748 c:\users\chaise\dropbox\173\assignment 2\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\dropbox\173\assignment 2\common\include\soil.h
+

@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1526506421 source:c:\users\chaise\dropbox\173\assign 1\assign1\main.cpp
+	<string.h>
+	<GLUT/glut.h>
+	"glut.h"
+	<stdlib.h>
+	<iostream>
+	<math.h>
+
+1523842007 c:\users\chaise\dropbox\173\assign 1\common\include\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+

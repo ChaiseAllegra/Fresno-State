@@ -1,0 +1,288 @@
+<html>
+<p style="background-color: black; color: #ff00ff;margin: 0;font-size: 40px;">Chaise Allegra: 106006387: 5/11/18</p>
+<head>
+<title>Learning WebGL &mdash; lesson 1</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="common/glMatrix-0.9.5.min.js"></script>
+<script type="text/javascript" src="common/webgl-utils.js"></script>
+<script type="javascript" src="Graphics.js"></script>
+
+<script id="shader-fs" type="x-shader/x-fragment">
+    precision mediump float;
+    varying vec3 color;
+    void main(void) {
+        gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);//matrix color
+    }
+</script>
+
+
+<script id="shader-vs" type="x-shader/x-vertex">
+   
+    attribute vec3 aVertexPosition;
+    uniform float angle;
+    varying vec3 color;
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+
+    void main(void) {
+        color = aVertexPosition;
+        color.y=sin(angle+color.x/4.0+color.z/5.0);
+            //sin(angle+color.x/5.0+color.z/10.0);
+            //sin(angle+color.x/2.0+color.z/5.0);//Normal
+            //sin(angle+color.x/2.0+color.z/100.0);
+            //sin(angle+color.x/2.0+color.z/2.0);
+            //sin(angle+color.x/2.0+color.z/1.0);
+        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition.x,color.y-0.05,color.z, 2.0);//color.y
+    }
+</script>
+
+<script type="text/javascript">
+
+    var gl;             //gl handler
+    var shaderProgram;  // shader program
+    var currentlyPressedKeys = {}; // keyboard
+    var mvMatrix = mat4.create();  // 4 by 4 Matrix  
+    var pMatrix = mat4.create();   // 4 by 4 Matrix
+    var positionBuffer;
+    var indexBuffer;
+    var indCount;
+    var indices=[];
+    var width=100;
+    var height=100;
+    var rot=0.01;
+    var angle=0;
+
+    
+    var then =0;
+   
+        function initGL(canvas) {
+        try {
+            gl = canvas.getContext("webgl");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewportWidth = window.innerWidth;
+            gl.viewportHeight = window.innerHeight;
+
+            initShaders();     // take care of my shader
+            initBuffers();     // handles vbos,pbos etc.
+
+            gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
+            mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, pMatrix);
+            mat4.identity(mvMatrix);
+
+        } catch (e) {
+        }
+        if (!gl) {
+            alert("Could not initialise WebGL");
+        }
+    }
+
+   /**************For the Shaders ***************/
+
+       function getShader(gl, id) {
+        var shaderScript = document.getElementById(id);
+        if (!shaderScript) {
+            return null;
+        }
+
+        var str = "";
+        var k = shaderScript.firstChild;
+        while (k) {
+            if (k.nodeType == 3) {
+                str += k.textContent;
+            }
+            k = k.nextSibling;
+        }
+
+        var shader;
+        if (shaderScript.type == "x-shader/x-fragment") {
+            shader = gl.createShader(gl.FRAGMENT_SHADER);
+        } else if (shaderScript.type == "x-shader/x-vertex") {
+            shader = gl.createShader(gl.VERTEX_SHADER);
+        } else {
+            return null;
+        }
+
+        gl.shaderSource(shader, str);
+        gl.compileShader(shader);
+
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            console.log(gl.getShaderInfoLog(shader));
+            return null;
+        }
+
+        return shader;
+    }
+
+   /************** Shader Init *********/
+
+   function initShaders() {
+       
+        var fragmentShader = getShader(gl, "shader-fs");
+        var vertexShader = getShader(gl, "shader-vs");
+
+        shaderProgram = gl.createProgram();
+        gl.attachShader(shaderProgram, vertexShader);
+        gl.attachShader(shaderProgram, fragmentShader);
+        gl.linkProgram(shaderProgram);
+
+        if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+            console.log("Could not initialise shaders");
+        }
+
+        gl.useProgram(shaderProgram);  // optional
+
+        shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+        gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+       
+
+        shaderProgram.pMatrixUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
+        shaderProgram.mvMatrixUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
+        //shaderProgram.angle = gl.getAttribLocation(shaderProgram, "angle");
+        angleloc=gl.getUniformLocation(shaderProgram,"angle");
+    }
+ 
+   /************** setting model view Matrix ****/
+
+   function setMatrixUniforms() {
+        gl.uniformMatrix4fv(shaderProgram.pMatrixUniform, false, pMatrix);
+        gl.uniformMatrix4fv(shaderProgram.mvMatrixUniform, false, mvMatrix);
+    }
+
+   /************** Setting VBO *********/
+   
+       function initBuffers() {
+          var i=0;
+          var vertices = [];
+        for(  row=0; row<height; row++ ) 
+        {
+            for(  col=0; col<width; col++ ) 
+            {
+                vertices[i++] = col/2;
+                vertices[i++] = 0.0;
+                vertices[i++] = row/2;
+            }
+        }
+           var a=0;
+           var b=1;
+           var c=5; 
+           var count=0;
+           var x=0;
+        for(  row=0; row<height-1; row++ ) 
+        {
+            if((row%2==0))
+            {
+            for(  col=0; col<width; col++ ) 
+            {
+               indices[x++]=col+row*width;
+               indices[x++]=col+(row+1)*width;
+            }
+            }
+            else
+            {
+                for(col=width-1;col>0;col--)
+                {
+                    indices[x++]=col+(row+1)*width;
+                    indices[x++]=col-1+row*width;
+                }
+            }
+        }
+
+           
+        positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(vertices), gl.DYNAMIC_DRAW);
+
+
+        indexBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indices), gl.DYNAMIC_DRAW);
+    }
+   /************ Draw the Contents******/
+ 
+ function drawScene() {
+       // rot+=0.000025;
+
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+ 
+        mat4.identity(mvMatrix);
+        mat4.translate(mvMatrix, [-10.0, -0.75, -20.0]);
+        mat4.rotate(mvMatrix,0,[0, 0, 1]);// axis to rotate around orig =0
+
+
+        gl.bindBuffer(gl.ARRAY_BUFFER,positionBuffer);
+        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,3,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+        gl.uniform1f(angleloc,angle);
+
+
+// Tell WebGL which indices to use to index the vertices
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexBuffer);
+
+
+setMatrixUniforms();   // passing matrixes to the shader
+    gl.drawElements(gl.LINE_STRIP,indices.length, gl.UNSIGNED_SHORT, 0);
+    requestAnimationFrame(render);
+    }
+/*********************************************/
+
+function render(now) {
+    angle+=0.005;
+    now += 0.002;  // convert to seconds
+    deltaTime = now - then;
+    then = now;
+    requestAnimationFrame(drawScene);
+}
+
+   /********** Linking functions on page load***/
+
+   function webGLStart() {
+        var canvas = document.getElementById("webgl");
+        initGL(canvas);    // where you draw stuff
+        
+        gl.clearColor(0.0, 0.0, 0.0, 1.0);//background color
+        gl.enable(gl.DEPTH_TEST);
+        drawScene();
+        window.addEventListener('resize', screen_resize);
+           }
+
+   /************************************/
+
+    function handleKeyDown(event) {
+        currentlyPressedKeys[event.keyCode] = true;
+        //  console.log(event.keyCode);
+        var y = event.keyCode;
+        console.log(y);
+        if(y==119)
+        {
+            rot+=0.001;
+        }
+
+        handleKeys();
+    }
+     function handleKeyUp(event) {
+        currentlyPressedKeys[event.keyCode] = false;
+    }
+
+    function  screen_resize(){
+      // webGLStart();
+      var canvas = document.getElementById("webgl");
+       initGL(canvas);
+      // initShaders();     // take care of my shader
+        drawScene();
+    }
+
+</script>
+</head>
+
+<body>
+<body onload="webGLStart();" style="width: 100%;margin: 0;">
+
+ <div id="screen">
+  <canvas id="webgl" style="border: none;width: 100%;height:92.9%;" ></canvas>
+</div>
+
+</body>
+
+</html>

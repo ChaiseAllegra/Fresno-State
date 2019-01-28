@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1526517683 source:c:\users\chaise\dropbox\173\assignment 6\project4\main.cpp
+	<string.h>
+	<GLUT/glut.h>
+	"glut.h"
+	<stdlib.h>
+	<iostream>
+	<math.h>
+	"SOIL.h"
+
+1525734747 c:\users\chaise\dropbox\173\assignment 6\common\include\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\dropbox\173\assignment 6\common\include\soil.h
+
+1526517683 source:c:\users\chaise\documents\advanced-graphics-fresno-state-173-\assignment 6 rotation and textures\project6\main.cpp
+	<string.h>
+	<GLUT/glut.h>
+	"glut.h"
+	<stdlib.h>
+	<iostream>
+	<math.h>
+	"SOIL.h"
+
+1525734747 c:\users\chaise\documents\advanced-graphics-fresno-state-173-\assignment 6 rotation and textures\common\include\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\documents\advanced-graphics-fresno-state-173-\assignment 6 rotation and textures\common\include\soil.h
+

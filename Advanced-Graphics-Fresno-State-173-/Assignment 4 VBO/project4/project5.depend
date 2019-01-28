@@ -1,0 +1,217 @@
+# depslib dependency file v1.0
+1512523005 source:c:\users\deathonadinosaur\desktop\csci172\projects\project 1\project5\main.cpp
+	<string.h>
+	<sstream>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<math.h>
+	<vector>
+	<fstream>
+	<string>
+
+1523647038 c:\users\deathonadinosaur\desktop\csci172\projects\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1523839974 source:c:\users\deathonadinosaur\desktop\csci172\projects\172 projects\project5\main.cpp
+	<string.h>
+	<sstream>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<math.h>
+	<vector>
+	<fstream>
+	<string>
+
+1525729732 source:c:\users\deathonadinosaur\desktop\csci172\projects\project5\main.cpp
+	<string.h>
+	<windows.h>
+	<sstream>
+	<GL/glew.h>
+	<glew.h>
+	<GL/glu.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<vector>
+	<fstream>
+	<cstdlib>
+	<SOIL.h>
+	<glut.h>
+
+1519337573 c:\users\deathonadinosaur\desktop\csci172\projects\common\include\soil.h
+
+1523647038 c:\users\deathonadinosaur\desktop\csci172\projects\common\include\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525394756 c:\users\deathonadinosaur\desktop\csci172\projects\common\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525394756 c:\users\deathonadinosaur\desktop\csci172\projects\common\include\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525734767 source:c:\users\chaise\dropbox\173\vbo (2)\project5\main.cpp
+	<string.h>
+	<windows.h>
+	<sstream>
+	<GL/glew.h>
+	<glew.h>
+	<GL/glu.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<vector>
+	<fstream>
+	<cstdlib>
+	<SOIL.h>
+	<glut.h>
+
+1525734748 c:\users\chaise\dropbox\173\vbo (2)\common\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\dropbox\173\vbo (2)\common\include\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525734748 c:\users\chaise\dropbox\173\vbo (2)\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\dropbox\173\vbo (2)\common\include\soil.h
+
+1525734747 c:\users\chaise\dropbox\173\vbo (2)\common\include\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525735210 source:c:\users\chaise\dropbox\173\assignment 3\project3\main.cpp
+	<string.h>
+	<windows.h>
+	<sstream>
+	<GL/glew.h>
+	<glew.h>
+	<GL/glu.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<vector>
+	<fstream>
+	<cstdlib>
+	<SOIL.h>
+	<glut.h>
+
+1525734748 c:\users\chaise\dropbox\173\assignment 3\common\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\dropbox\173\assignment 3\common\include\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525734748 c:\users\chaise\dropbox\173\assignment 3\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\dropbox\173\assignment 3\common\include\soil.h
+
+1525734747 c:\users\chaise\dropbox\173\assignment 3\common\include\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525735210 source:c:\users\chaise\dropbox\173\assignment 4\project4\main.cpp
+	<string.h>
+	<windows.h>
+	<sstream>
+	<GL/glew.h>
+	<glew.h>
+	<GL/glu.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<vector>
+	<fstream>
+	<cstdlib>
+	<SOIL.h>
+	<glut.h>
+
+1525734748 c:\users\chaise\dropbox\173\assignment 4\common\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\dropbox\173\assignment 4\common\include\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1525734748 c:\users\chaise\dropbox\173\assignment 4\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1525734747 c:\users\chaise\dropbox\173\assignment 4\common\include\soil.h
+
+1525734747 c:\users\chaise\dropbox\173\assignment 4\common\include\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
