@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1506035760 source:c:\users\chaise\desktop\172\projects\project 1\assign 1\main.cpp
+	<string.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<math.h>
+	<stdlib.h>
+
+1506031948 c:\users\chaise\desktop\172\projects\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1506035760 source:c:\users\chaise\dropbox\fall 2017\172\projects\project 1\assign 1\main.cpp
+	<string.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<math.h>
+	<stdlib.h>
+
+1506035760 source:c:\users\chaise\dropbox\fall 2017\172\project 1\project 1\assign 1\main.cpp
+	<string.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<math.h>
+	<stdlib.h>
+

@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1526515912 source:c:\users\chaise\documents\fresno-state\csci 172 computer graphics\project 3\project3\main.cpp
+	<string.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<math.h>
+
+1525734748 c:\users\chaise\documents\fresno-state\csci 172 computer graphics\project 3\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
