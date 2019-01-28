@@ -1,0 +1,15 @@
+client
+    connects to the server, recieve product info 
+    repeats bidding process
+    randomly choose one product and submit a higher than current price and waits to see if it wins
+    if it doenst win it continously submit higher p0rice id until it reacehs its maximum acceptabole price
+    client has probability of 30% for not bidding 
+
+server
+        randomly create some items and intital bidding price
+    broadcasts to clients invite bidding
+    wait for clients to submit bids
+    recieve all bids and inform the results to the each client 
+        limit on the number of units per items
+        keep track of how many units are left 
+        if sold out no bidding or broadcasting to clients

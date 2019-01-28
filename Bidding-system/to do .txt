@@ -1,0 +1,4 @@
+X1. timer that closes the bidding after a certain amount of time
+X2. limited amounts of each item 
+3. randomly choose their items
+4. random chance they dont bid 
